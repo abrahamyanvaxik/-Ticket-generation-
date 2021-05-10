@@ -47,7 +47,7 @@ router.post("/", async (req: any, res: {
             await barCodeGenerator.create();
         }
 
-        const pdfGenerator = new Pdf(`http://localhost:8001/${req.body.code_type}/${fileName}.png`, req.body.name, fileName);
+        const pdfGenerator = new Pdf(`http://localhost:8000/${req.body.code_type}/${fileName}.png`, req.body.name, fileName);
         await pdfGenerator.create();
 
         const storageUpload = new Upload(fileName);
